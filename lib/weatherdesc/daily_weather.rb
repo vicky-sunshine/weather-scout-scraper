@@ -92,6 +92,7 @@ module DailyWeatherScraper
           tips << element.text
         end
       end
+      tips = tips.gsub("\n\n","\n")
       tips.force_encoding('UTF-8')
     end
 
