@@ -1,0 +1,26 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ansi (1.5.0)
+    ast (2.2.0)
+    minitest (5.8.3)
+    oga (2.0.0)
+      ast
+      ruby-ll (~> 2.1)
+    rake (10.4.2)
+    ruby-ll (2.1.2)
+      ansi
+      ast
+    thor (0.19.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest
+  oga
+  rake
+  thor
+
+BUNDLED WITH
+   1.10.6
