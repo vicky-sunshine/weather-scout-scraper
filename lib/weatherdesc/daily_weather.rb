@@ -49,32 +49,32 @@ module DailyWeatherScraper
 
     def parse_date
       data = @document.xpath("//table[@class='FcstBoxTable01']")
-      @date = data[2].children[3].children[0].children[1].children.text.split(" ")[1]
+      result = data[2].children[3].children[0].children[1].children.text.split(" ")[1]
     end
 
     def parse_temp_day
       data = @document.xpath("//table[@class='FcstBoxTable01']")
-      @temperature_day = data[2].children[3].children[0].children[3].children.text
+      result = data[2].children[3].children[0].children[3].children.text
     end
 
     def parse_temp_night
       data = @document.xpath("//table[@class='FcstBoxTable01']")
-      @temperature_night = data[2].children[3].children[1].children[3].children.text
+      result = data[2].children[3].children[1].children[3].children.text
     end
 
     def parse_rain_prob
       data = @document.xpath("//table[@class='FcstBoxTable01']")
-      @rain_probability = data[2].children[3].children[0].children[9].children.text
+      result = data[2].children[3].children[0].children[9].children.text
     end
 
     def parse_condition_day
       data = @document.xpath("//table[@class='FcstBoxTable01']")
-      @condition_day = data[2].children[3].children[0].children[5].children[1].attributes[1].value.force_encoding('UTF-8')
+      result = data[2].children[3].children[0].children[5].children[1].attributes[1].value.force_encoding('UTF-8')
     end
 
     def parse_condition_night
       data = @document.xpath("//table[@class='FcstBoxTable01']")
-      @condition_night = data[2].children[3].children[1].children[5].children[1].attributes[1].value.force_encoding('UTF-8')
+      result = data[2].children[3].children[1].children[5].children[1].attributes[1].value.force_encoding('UTF-8')
     end
 
     def parse_tips
@@ -82,18 +82,18 @@ module DailyWeatherScraper
       tips_api = data[0].children[13].children[0].text.split("'")[1]
       tips_url = "#{CWB_URL}/#{tips_api}"
       tips_doc = Oga.parse_html(open(tips_url))
-      tips = ""
+      result = ""
       tips_doc.children.each do |element|
         if element.text.empty?
-          tips << "\n"
+          result << "\n"
         elsif element.text.split(":")[0].force_encoding('UTF-8') == "更新時間"
           break
         else
-          tips << element.text
+          result << element.text
         end
       end
-      tips = tips.gsub("\n\n","\n")
-      tips.force_encoding('UTF-8')
+      result = result.gsub("\n\n","\n")
+      result.force_encoding('UTF-8')
     end
 
     def name_mapping(city)
