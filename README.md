@@ -3,7 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/weatherscout.svg)](https://badge.fury.io/rb/weatherscout)
 
 Weather Scout help you know the weather today!
-You won't be frozen or burned outside and find the tips to deal with the temperamental weather :muscle:.
+You won't be frozen or burned outside and find the tips to deal with the temperamental weather :muscle:
 
 ## Usage
 
@@ -44,6 +44,7 @@ puts "溫馨提示：\n#{tips}"
 ````
 
 ## Test
+Using [rake](http://docs.seattlerb.org/rake/) to run tests. If you don't have rake using `gem install rake` to install it.
 
 ```sh
 $ rake
