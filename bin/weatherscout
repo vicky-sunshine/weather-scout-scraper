@@ -13,10 +13,10 @@ class WeatherCLI < Thor
     condition_day = weather.condition_day
     condition_night = weather.condition_night
     tips = weather.tips
-    puts "#{date} #{city}"
-    puts "白天- #{condition_day}\t氣溫 #{temperature_day} 度"
-    puts "晚上- #{condition_night}\t氣溫 #{temperature_night} 度"
-    puts "降雨機率 #{rain_probability}"
+    puts "#{city}#{date}天氣狀況："
+    puts "白天氣象：#{condition_day}，氣溫 #{temperature_day} 度"
+    puts "晚上氣象：#{condition_night}，氣溫 #{temperature_night} 度"
+    puts "降雨機率：#{rain_probability}"
     puts "溫馨叮嚀："
     puts "#{tips}"
   end
