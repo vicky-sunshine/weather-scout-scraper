@@ -1,0 +1,10 @@
+
+language: ruby
+rvm:
+  - ruby-head
+  - 2.1.0
+  - jruby-head
+branches:
+  only:
+    - master
+    - /^release-.*$/
