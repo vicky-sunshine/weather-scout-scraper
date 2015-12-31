@@ -1,4 +1,5 @@
 # weather-scout
+[![Build Status](https://travis-ci.org/vicky-sunshine/weather-scout-scraper.svg)](https://travis-ci.org/vicky-sunshine/weather-scout-scraper)
 
 A simple CLI project to know the weather today!
 
