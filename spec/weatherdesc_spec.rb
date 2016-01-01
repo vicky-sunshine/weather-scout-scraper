@@ -6,6 +6,11 @@ weather = DailyWeatherScraper::DailyWeather.new(CITY)
 
 describe 'Daily weather desc scrap' do
   it 'should return date with the "month/day" style' do
+    city = weather.city
+    city.must_be_instance_of String
+  end
+
+  it 'should return date with the "month/day" style' do
     date = weather.date
     date.must_match /\d\d\/\d\d/
   end
