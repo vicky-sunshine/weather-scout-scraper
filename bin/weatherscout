@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'thor'
-require './lib/weatherdesc/daily_weather.rb' # for cmd line testing purposes
+# require './lib/weatherdesc/daily_weather.rb' # for cmd line testing purposes
 
 class WeatherCLI < Thor
   desc 'today CITY', 'see the weather of the city today'
