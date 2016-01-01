@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 require 'thor'
-require 'weatherscout' # for production
-# require './lib/weatherdesc/daily_weather.rb' # for cmd line testing purposes
+# require 'weatherscout' # for production
+require './lib/weatherdesc/daily_weather.rb' # for cmd line testing purposes
 
 class WeatherCLI < Thor
   desc 'today CITY', 'see the weather of the city today'
   def today(city)
     weather = DailyWeatherScraper::DailyWeather.new(city)
+    city_eng = weather.city
     date = weather.date
     temperature_day = weather.temperature_day
     temperature_night = weather.temperature_night
@@ -14,7 +15,7 @@ class WeatherCLI < Thor
     condition_day = weather.condition_day
     condition_night = weather.condition_night
     tips = weather.tips
-    puts "#{city}（#{date}）天氣狀況："
+    puts "#{city}（#{city_eng}）在 #{date} 的天氣狀況："
     puts "白天氣象：#{condition_day}，氣溫 #{temperature_day} 度"
     puts "晚上氣象：#{condition_night}，氣溫 #{temperature_night} 度"
     puts "降雨機率：#{rain_probability}"
