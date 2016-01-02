@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require './lib/weatherdesc.rb'
+require './lib/weatherscout.rb'
 
 CITY = "新竹"
 weather = DailyWeatherScraper::DailyWeather.new(CITY)
