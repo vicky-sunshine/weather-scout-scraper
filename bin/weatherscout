@@ -8,17 +8,16 @@ class WeatherCLI < Thor
   def today(city)
     weather = DailyWeatherScraper::DailyWeather.new(city)
     city_eng = weather.city
-    date = weather.date
-    temperature_day = weather.temperature_day
-    temperature_night = weather.temperature_night
-    rain_probability = weather.rain_probability
-    condition_day = weather.condition_day
-    condition_night = weather.condition_night
+    weathers = weather.weathers
     tips = weather.tips
-    puts "#{city}（#{city_eng}）在 #{date} 的天氣狀況："
-    puts "白天氣象：#{condition_day}，氣溫 #{temperature_day} 度"
-    puts "晚上氣象：#{condition_night}，氣溫 #{temperature_night} 度"
-    puts "降雨機率：#{rain_probability}"
+    puts "#{city}（#{city_eng}）的天氣預測："
+    weathers.each do |timestamp, weather|
+      attributes = weather.values
+      puts "#{timestamp}"
+      puts "  -氣溫：#{attributes[0]} 度"
+      puts "  -降雨機率：#{attributes[1]}"
+      puts "  -天氣狀況：#{attributes[2]}"
+    end
     puts "溫馨叮嚀："
     puts "#{tips}"
   end
