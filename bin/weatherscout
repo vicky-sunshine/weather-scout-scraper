@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 require 'thor'
 require 'weatherscout' # for production
-# require './lib/weatherdesc/daily_weather.rb' # for cmd line testing purposes
+# require './lib/weathers/daily_weather.rb' # for cmd line testing purposes
 
 class WeatherCLI < Thor
   desc 'today CITY', 'see the weather of the city today'
   def today(city)
-    weather = DailyWeatherScraper::DailyWeather.new(city)
+    weather = WeatherScraper::DailyWeather.new(city)
     city_eng = weather.city
     weathers = weather.weathers
     tips = weather.tips

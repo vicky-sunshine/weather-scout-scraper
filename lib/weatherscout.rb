@@ -1,1 +1,1 @@
-require 'weatherdesc/daily_weather.rb'
+require 'weathers/weather_scraper.rb'

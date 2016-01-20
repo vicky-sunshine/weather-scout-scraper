@@ -1,7 +1,7 @@
 require 'oga'
 require 'open-uri'
 
-module DailyWeatherScraper
+module WeatherScraper
   # parse course description from sharecourse web
   class DailyWeather
     CWB_URL = "http://www.cwb.gov.tw"
