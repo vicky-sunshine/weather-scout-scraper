@@ -15,15 +15,23 @@ $ gem install weatherscout
 To see the weather today
 ```sh
 $ weatherscout today 新竹
-新竹（01/01）天氣狀況：
-白天氣象：多雲，氣溫 15 ~ 16 度
-晚上氣象：多雲，氣溫 15 ~ 23 度
-降雨機率：0 %
+新竹（HsinchuCity）的天氣預測：
+今晚至明晨 01/21 00:00~01/21 06:00
+  -氣溫：15 ~ 16 度
+  -降雨機率：70 %
+  -天氣狀況：多雲短暫雨
+明日白天 01/21 06:00~01/21 18:00
+  -氣溫：15 ~ 18 度
+  -降雨機率：60 %
+  -天氣狀況：多雲短暫雨
+明日晚上 01/21 18:00~01/22 06:00
+  -氣溫：15 ~ 17 度
+  -降雨機率：70 %
+  -天氣狀況：多雲時陰陣雨
 溫馨叮嚀：
-清晨東北季風影響，早晚氣溫低
-今(31)日，新竹市地區仍受東北季風影響，為多雲的天氣，空曠地區易有８至９級強陣風，香山區白天溫度在15-19度左右；外出請注意保暖及注意安全。
-明(1)日，新竹市地區清晨東北季風影響，早晚氣溫低，為多雲的天氣，預報溫度在16到18度之間；外出請注意保暖及注意安全。
-明(1)日，新竹沿海地區風力7至8陣風10級下午轉5至6陣風8級，作業船隻及海邊活動仍請注意安全。
+東北季風及華南雲雨區影響，多雲短暫雨
+昨 (20)日，持續受大陸冷氣團影響，氣溫較低，水氣增加，為多雲時陰有短暫雨的天氣，清晨起，局部地區已有短暫陣雨發生。
+明 (21)日，受東北季風及華南雲雨區影響，氣溫略回升，為多雲短暫雨的天氣。預估氣溫16-18度，空曠地區有6至8級強陣風；清晨部分地區有短暫陣雨，外出請注意保暖和強風及攜帶雨具備用。
 ```
 
 The weather in the future week and other feature will be coming soon! :grinning:
@@ -33,13 +41,25 @@ Use it from your Ruby code:
 ````ruby
 require 'weatherscout'
 CITY = "新竹"
-weather = DailyWeatherScraper::DailyWeather.new(CITY)
+daily_weather = DailyWeatherScraper::DailyWeather.new(CITY)
 
-temp = weather.temperature_day
-puts "今天白天氣溫：#{temp}"
-
-tips = weather.tips
-puts "溫馨提示：\n#{tips}"
+city = daily_weather.city
+# ""HsinchuCity""
+weathers = daily_weather.weathers
+# {"今晚至明晨 01/21 00:00~01/21 06:00"=>
+#     {"temperature"=>"15 ~ 16",
+#      "rain_probability"=>"70 %",
+#      "condition"=>"多雲短暫雨"},
+#  "明日白天 01/21 06:00~01/21 18:00"=>
+#     {"temperature"=>"15 ~ 18",
+#      "rain_probability"=>"60 %",
+#      "condition"=>"多雲短暫雨"},
+#  "明日晚上 01/21 18:00~01/22 06:00"=>
+#     {"temperature"=>"15 ~ 17",
+#      "rain_probability"=>"70 %",
+#      "condition"=>"多雲時陰陣雨"}}
+tips = daily_weather.tips
+# "東北季風及華南雲雨區影響，多雲短暫雨\n昨 (20)日，持續受大陸冷氣團影響，氣溫較低，水氣增加，為多雲時陰有短暫雨的天氣，清晨起，局部地區已有短暫陣雨發生。\n明 (21)日，受東北季風及華南雲雨區影響，氣溫略回升，為多雲短暫雨的天氣。預估氣溫16-18度，空曠地區有6至8級強陣風；清晨部分地區有短暫陣雨，外出請注意保暖和強風及攜帶雨具備用。\n"
 
 ````
 
