@@ -2,7 +2,8 @@ require 'oga'
 require 'open-uri'
 
 module WeatherScraper
-  # parse course description from sharecourse web
+  # parse weekly weather description from cwb website
   class WeeklyWeather
+
   end
 end
