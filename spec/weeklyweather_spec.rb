@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 require './lib/weatherscout.rb'
 
-CITY = "新竹"
-weekly_weather = WeatherScraper::WeeklyWeather.new(CITY)
+WEEKLY_CITY = "新竹"
+weekly_weather = WeatherScraper::WeeklyWeather.new(WEEKLY_CITY)
 
 describe 'Weekly weather desc scrap' do
 

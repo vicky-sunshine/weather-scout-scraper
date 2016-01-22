@@ -1,8 +1,8 @@
 require 'minitest/autorun'
 require './lib/weatherscout.rb'
 
-CITY = "新竹"
-daily_weather = WeatherScraper::DailyWeather.new(CITY)
+DAILY_CITY = "新竹"
+daily_weather = WeatherScraper::DailyWeather.new(DAILY_CITY)
 
 describe 'Daily weather desc scrap' do
 
@@ -47,8 +47,8 @@ describe 'Daily weather desc scrap' do
     end
   end
 
-  it 'should return weather tips' do
-    tips = daily_weather.tips
-    tips.must_be_instance_of String
-  end
+  # it 'should return weather tips' do
+  #   tips = daily_weather.tips
+  #   tips.must_be_instance_of String
+  # end
 end
