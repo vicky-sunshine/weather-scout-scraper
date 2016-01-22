@@ -1,5 +1,5 @@
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
-require 'weatherdesc/version'
+require 'weathers/version'
 Gem::Specification.new do |s|
   s.name = 'weatherscout'
   s.version = WeatherDesc::VERSION
