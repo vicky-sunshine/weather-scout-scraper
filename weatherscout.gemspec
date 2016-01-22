@@ -1,5 +1,5 @@
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
-require 'weatherdesc/version'
+require 'weathers/version'
 Gem::Specification.new do |s|
   s.name = 'weatherscout'
   s.version = WeatherDesc::VERSION
@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.summary = 'Tell you the weather of Taiwan'
   s.description = 'You can find the weather of the major city in Taiwan'
   s.authors = ['Vicky Lee']
-  s.email   = ['lch82327@gmail.com']  
+  s.email   = ['lch82327@gmail.com']
   s.files       =  `git ls-files`.split("\n")
   s.test_files  =  `git ls-files spec/*`.split("\n")
   s.homepage    =  'https://github.com/vicky-sunshine/weather-scout-scraper'
