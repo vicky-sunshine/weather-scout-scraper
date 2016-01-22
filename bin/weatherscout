@@ -30,8 +30,6 @@ class WeatherCLI < Thor
     city_eng = weather.city
     weathers = weather.weathers
 
-    print weathers
-    
     day_temp = weathers.values.map {|e| e['day_temperature']}
     day_cond = weathers.values.map {|e| e['day_condition']}
     night_temp = weathers.values.map {|e| e['night_temperature']}
