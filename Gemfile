@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'oga'
-gem 'minitest'
-gem 'thor'
+gemspec
 
 group :test do
   gem 'rake'
