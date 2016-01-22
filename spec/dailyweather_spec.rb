@@ -27,7 +27,7 @@ describe 'Daily weather desc scrap' do
     weathers = daily_weather.weathers.values
     weathers.each do |weather|
       temperature = weather["temperature"]
-      temperature.must_match /(-|\d)\d+\s~\s(-|\d)\d+/
+      temperature.must_match /(-|\d)\d*\s~\s(-|\d)\d*/
     end
   end
 
