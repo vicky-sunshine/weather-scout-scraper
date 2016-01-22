@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 require 'thor'
-require 'weatherscout' # for production
-# require './lib/weathers/daily_weather.rb' # for cmd line testing purposes
+# require 'weatherscout' # for production
+require './lib/weathers/weather_scraper/daily_weather.rb' # for cmd line testing purposes
+require './lib/weathers/weather_scraper/weekly_weather.rb' # for cmd line testing purposes
+
 
 class WeatherCLI < Thor
   desc 'today CITY', 'see the weather of the city today'
@@ -20,6 +22,28 @@ class WeatherCLI < Thor
     end
     puts "溫馨叮嚀："
     puts "#{tips}"
+  end
+
+  desc 'week CITY', 'see the weather of the city this week'
+  def week(city)
+    weather = WeatherScraper::WeeklyWeather.new(city)
+    city_eng = weather.city
+    weathers = weather.weathers
+
+    print weathers
+    
+    day_temp = weathers.values.map {|e| e['day_temperature']}
+    day_cond = weathers.values.map {|e| e['day_condition']}
+    night_temp = weathers.values.map {|e| e['night_temperature']}
+    night_cond = weathers.values.map {|e| e['night_condition']}
+    puts "#{city}（#{city_eng}）的未來一週預測："
+    weathers.keys.each_index do |i|
+      puts "#{weathers.keys[i]}"
+      puts "  -白天溫度：#{day_temp[i]} 度"
+      puts "  -白天天氣狀況：#{day_cond[i]}"
+      puts "  -晚上溫度：#{night_temp[i]} 度"
+      puts "  -晚上天氣狀況：#{night_cond[i]}"
+    end
   end
 end
 
