@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 require 'thor'
-# require 'weatherscout' # for production
-require './lib/weathers/weather_scraper/daily_weather.rb' # for cmd line testing purposes
-require './lib/weathers/weather_scraper/weekly_weather.rb' # for cmd line testing purposes
+require 'weatherscout' # for production
+# require './lib/weathers/weather_scraper/daily_weather.rb' # for cmd line testing purposes
+# require './lib/weathers/weather_scraper/weekly_weather.rb' # for cmd line testing purposes
 
 
 class WeatherCLI < Thor
