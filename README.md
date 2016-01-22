@@ -36,7 +36,7 @@ $ weatherscout today 新竹
 
 To see the weather in the future week
 ```sh
-➜  weather-scout-scraper git:(weekly-weather) ✗ ./bin/weatherscout week 新竹
+$ weatherscout week 新竹
 新竹（HsinchuCity）的未來一週預測：
 01/23星期六
   -白天溫度：8 ~ 12 度
