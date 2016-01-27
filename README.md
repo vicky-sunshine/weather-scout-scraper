@@ -81,7 +81,7 @@ Use it from your Ruby code:
 ````ruby
 require 'weatherscout'
 CITY = "新竹"
-daily_weather = DailyWeatherScraper::DailyWeather.new(CITY)
+daily_weather = WeatherScraper::DailyWeather.new(CITY)
 
 city = daily_weather.city
 # ""HsinchuCity""
